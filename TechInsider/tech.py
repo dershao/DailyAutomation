@@ -19,7 +19,7 @@ def createSoup(request):
 	:param: param1: requests
 	:returns: bs4.BeautifulSoup
 	"""
-	techSoup = bs4.BeautifulSoup(request.text)
+	techSoup = bs4.BeautifulSoup(request.text,"html5lib")
 	return techSoup
 
 def getArticleLinks(bs4obj):
