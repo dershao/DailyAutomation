@@ -3,6 +3,11 @@
 import requests, bs4, datetime
 
 def getPage():
+	"""
+	Returns the request of specified URL.
+
+	:returns: requests
+	"""
 	res = requests.get('http://www.xkcd.com')
 	res.raise_for_status()
 	return res
@@ -10,9 +15,9 @@ def getPage():
 def createSoup(request):
 	xkcdSoup = bs4.BeautifulSoup(request.text)
 	#get all elements with 'img'
-	imgElems = xkcdSoup.select('img')
+	imgElems = xkcdSoup.select('#comic img')
 	#get attribute of img elem
-	url = imgElems[1].get('src')
+	url = imgElems[0].get('src')
 	return url
 
 def mkImgRequest(url):
