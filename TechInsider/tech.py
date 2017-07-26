@@ -52,7 +52,7 @@ links = getArticleLinks(pageSoup)
 main = getMainArticleLink(pageSoup)
 
 #opens main article
-webbrowser.open_new(main, 1)
+webbrowser.open_new(main)
 
 #open secondary articles
 for i in range(1,4):
