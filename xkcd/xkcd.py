@@ -22,6 +22,7 @@ def createSoup(request):
 
 def mkImgRequest(url):
 	imgRes = requests.get('http:' + url)
+	print("Downloading image from :" + url)
 	return imgRes
 
 #datetime object - gets today's date

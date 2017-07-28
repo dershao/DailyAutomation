@@ -55,7 +55,7 @@ main = getMainArticleLink(pageSoup)
 webbrowser.open_new(main)
 
 #open secondary articles
-for i in range(1,4):
+for i in range(1, 4):
 	webbrowser.open_new_tab(links[i])
 
 
