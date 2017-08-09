@@ -3,33 +3,33 @@ import requests
 from bs4 import BeautifulSoup
 
 def getWebRequest(url):
-	"""
+    """
     param: param1: String
 
     return: requests
     Returns requests object of specified URL. 
-	"""
-	res = requests.get(url)
-	res.raise_for_status()
-	return res
+    """
+    res = requests.get(url)
+    res.raise_for_status()
+    return res
 
 def getWebLinkElems(requests):
-	"""
+    """
     param: param1: requests
-	
+
     return: list
 
     Returns list of links found on webpage by searching
     for <a> tags and <href> attributes.
-	"""
-	link = BeautifulSoup(requests.text, "html5lib")
-	linkElems = link.find_all('a')
-	linkAttr = []
+    """
+    link = BeautifulSoup(requests.text, "html5lib")
+    linkElems = link.find_all('a')
+    linkAttr = []
 
-	for l in linkElems:
-		linkAttr.append(l.attrs['href'])
+    for l in linkElems:
+        linkAttr.append(l.attrs['href'])
 
-	return linkAttr
+    return linkAttr
 
 def testLinks(links, webpage):
     """
@@ -41,12 +41,13 @@ def testLinks(links, webpage):
     Test each links found on webpage and returns
     the number of links that can successfully be connected.
     """
-	success = 0
-	for link in links:
-    	try:
-        	if link[0] == "/":
-                #TODO: add default webpage to the string
-            	res = requests.get(link)
+    success = 0
+    for link in links:
+        try:
+            if link[0] == "/":
+                link = webpage.__add__(link)
+
+            res = requests.get(link)
             if res.status_code == requests.codes.ok:
                 print("Testing URL: " + link)
                 print("Response code: " + str(res.status_code))
@@ -62,8 +63,9 @@ def pause():
     """
     return: None
 
+    Prevents output from closing automatically
     """
-	programPause = input("Press <ENTER> to exit...")
+    programPause = input("Press <ENTER> to exit...")
 
 
 def main():
@@ -79,9 +81,10 @@ def main():
     print("Test completed")
     print(str(successful) + " links out of " + str(totalLinks) + " successful")
 
-    pause()
+
 
 if __name__ == "__main__":
 
     main()
+    pause()
 
