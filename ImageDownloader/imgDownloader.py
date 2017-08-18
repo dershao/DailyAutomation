@@ -9,11 +9,11 @@ def main():
 	query = str(input())
 
 	browser = webdriver.Firefox()
-	browser.get("www.google.com/images")
+	browser.get("http://www.google.com/images")
 
 	#TODO: find html idfor the search bar
 
-	search = browser.find_element_by_id("search-bar")
+	search = browser.find_element_by_id("tsf")
 	search.send_keys(query)
 	search.submit()
 
@@ -34,5 +34,7 @@ def downloadImg(requests):
 
 
 if __name__ == "__main__":
-	#opening
+	#opening program 
 	main()
+
+	pause = str(input("Press <ENTER> to exit..."))
