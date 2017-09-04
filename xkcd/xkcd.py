@@ -1,4 +1,4 @@
-#downloads today's xkcd comic
+#!/usr/bin/env python3
 
 import requests, bs4, datetime
 
@@ -13,7 +13,7 @@ def getPage():
 	return res
 
 def createSoup(request):
-	xkcdSoup = bs4.BeautifulSoup(request.text)
+	xkcdSoup = bs4.BeautifulSoup(request.text, 'html5lib')
 	#get all elements with 'img'
 	imgElems = xkcdSoup.select('#comic img')
 	#get attribute of img elem

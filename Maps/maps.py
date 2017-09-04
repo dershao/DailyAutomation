@@ -1,3 +1,5 @@
+#!/usr/bin/evn python3
+
 import sys, pyperclip, webbrowser
 
 if (len(sys.argv) > 1):

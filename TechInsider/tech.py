@@ -1,4 +1,4 @@
-#Business Insider - Tech Insider Article Opener
+#!/usr/bin/env python3
 
 import requests, bs4, webbrowser
 
@@ -56,6 +56,7 @@ webbrowser.open_new(main)
 
 #open secondary articles
 for i in range(1, 4):
+	pause = input("Press <ENTER> for the next article...")
 	webbrowser.open_new_tab(links[i])
 
 
