@@ -37,4 +37,4 @@ if __name__ == "__main__":
 	#opening program 
 	main()
 
-	pause = str(input("Press <ENTER> to exit..."))
+	pause = str(input("Press <ENTER> to continue..."))
