@@ -59,7 +59,7 @@ def split(filename, start, end):
         pdfReader = PyPDF2.PdfFileReader(pdf)
         pdfWriter = PyPDF2.PdfFileWriter()
 
-        if (end > pdfReader.numPages - 1):
+        if (end > pdfReader.numPages):
             return
 
         for pageNum in range(end):
